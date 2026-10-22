@@ -6,27 +6,13 @@ library(raster)
 
 # ---------------------------------------------------------------------------- #
 
-# Counterfactual Scenarios
-
-# ---------------------------------------------------------------------------- #
-
-
-# Scenario 1 (Building Scenario): 
-# WUI maps created with the impervious fraction from 2020 & 
-# Vegetation Fractions from 1990
-
-# Scenario 2 (Vegetation Scenario): Impervious fraction from 2020 & Vegetation Fractions from 1990
-# WUI maps created with the impervious fraction from 1990 & 
-# Vegetation Fractions from 2020
-
-
 # ---------------------------------------------------------------------------- #
 # import input features
 # ---------------------------------------------------------------------------- #
 
 # data input path
-in_path = ""
-out_path = ""
+in_path = ".../data/"
+out_path = ".../data/"
 
 
 # ---------------------------------------------------------------------------- #
