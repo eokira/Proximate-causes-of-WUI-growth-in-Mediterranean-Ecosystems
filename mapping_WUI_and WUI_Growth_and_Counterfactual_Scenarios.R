@@ -100,15 +100,13 @@ nonwoody_cluster5sqkm_buffer2400m_2020 = stack(paste0(in_path, "nonwoody_interfa
 
 # import water mask
 water_mask = stack(paste0(in_path, "water.tif")) #???
-
-# ---------------------------------------------------------------------------- #
-# Mapping the WUI
 # ---------------------------------------------------------------------------- #
 
 
 
 # ---------------------------------------------------------------------------- #
-# Factual WUI classification (hierarchical)
+# ---------------------------------------------------------------------------- #
+# 1) Mapping the WUI: Factual WUI classification (hierarchical)
 # ---------------------------------------------------------------------------- #
 
 # 1. WUI in 1990 (impervious from 1990 & vegetation from 1990)
@@ -165,9 +163,8 @@ plot(wui_2020)
 
 
 # ---------------------------------------------------------------------------- #
-# Counterfactual WUI classification (hierarchical)
+# 2) Counterfactual WUI classification (hierarchical)
 # ---------------------------------------------------------------------------- #
-
 
 # 1. Building Scenario (impervious from 2020 & vegetation from 1990)
 
@@ -331,9 +328,9 @@ tm_shape(vegetation_scenario)+
 
 
 
-
 # ---------------------------------------------------------------------------- #
-# WUI changes
+# ---------------------------------------------------------------------------- #
+# 3) WUI changes from WUI in 1990 and 2020
 # ---------------------------------------------------------------------------- #
 
 # create binary WUI classes (0 = non-WUI; 1 = WUI (WUI classes ))
@@ -376,7 +373,7 @@ tm_shape(rs_wui_change)+
 
 
 # ---------------------------------------------------------------------------- #
-# Comparing WUI maps with the two factual WUI maps from 1990 & 2020
+# 4) Comparing counterfactua WUI maps with the two factual WUI maps from 1990 & 2020
 # ---------------------------------------------------------------------------- #
 
 
@@ -392,6 +389,7 @@ rs <- stack(wui_1990,
 
 df <- as.data.frame(rs, xy = TRUE) # xy = TRUE add coordinate; xy = FALSE does not add coordinates
 names(df) <- c("x", "y", "wui_1990", "wui_2020", "building_scenario", "vegetation_scenario")
+
 
 # ---------------------------------------------------------------------------- #
 # do statistical comparison
